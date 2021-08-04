@@ -91,7 +91,7 @@ export default {
     grava() {
       // método $validator vem do pacote vee-validator
 
-      this.$validator.validateAll.then((sucess) => {
+      this.$validator.validateAll().then((sucess) => {
         if (sucess) {
           /* this.foto = new Foto(); */
 
