@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
-import VueResource from 'vue-resource';
+//import VueResource from 'vue-resource'; // Cliente HTTP para Vue, desnecessário pois o projeto está usando Azios.
 import VueRouter from 'vue-router';
 import { routes } from './routes';
 import './directives/Transform';
@@ -9,16 +9,16 @@ import msg from './pt_BR'
 
 /* import 'bootstrap/dist/css/bootstrap.css';
 import './assets/css/teste.css' */
-import './assets/js/example';
-import 'bootstrap/dist/js/bootstrap';
-import 'jquery/dist/jquery';
+//import './assets/js/example';
+//import 'bootstrap/dist/js/bootstrap'; // Bootstrap require jquery
+//import 'jquery/dist/jquery';
 
-Vue.use(VueResource);
-Vue.http.options.root = process.env.API_URL ? process.env.API_URL : 'http://localhost:3000';
+//Vue.use(VueResource);
+//Vue.http.options.root = process.env.API_URL ? process.env.API_URL : 'http://localhost:3000';
 Vue.use(VueRouter);
 
 /* Vue.http.interceptors.push((req, next) => {
-
+  // VueResource
   // é possível colocar informações no header antes do envio da requisição
   req.headers.set('Authorization', 'informação de segurança aqui');
   console.log('Lidando com o request');

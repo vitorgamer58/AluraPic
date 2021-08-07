@@ -3,7 +3,7 @@
 > A Vue.js project
 
 ## Build Setup
-Use node 6.0.0
+Use node 14.17.3
 
 ``` bash
 # install dependencies

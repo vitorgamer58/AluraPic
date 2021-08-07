@@ -20,9 +20,7 @@
           v-model="foto.titulo"
         />
         <!-- <input id="titulo" autocomplete="off" @input="foto.titulo = $event.target.value" :value="foto.titulo"> -->
-        <span class="erro" v-show="errors.has('titulo')">{{
-          errors.first("titulo")
-        }}</span>
+        <span class="erro" v-show="errors.has('titulo')">{{errors.first("titulo")}}</span>
       </div>
 
       <div class="controle">
@@ -107,7 +105,7 @@ export default {
           /* this.resource
             .save(this.foto)
             .then(() => this.foto = new Foto(), err => console.log(err)) */
-        };
+        }
       });
     },
   },

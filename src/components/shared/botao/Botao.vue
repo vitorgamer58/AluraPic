@@ -1,5 +1,12 @@
 <template>
-    <button @click="disparaAcao()" class="botao" :class="estiloDoBotao" :type="tipo">{{ rotulo }}</button>
+    <button
+        @click="disparaAcao()"
+        class="botao"
+        :class="estiloDoBotao"
+        :type="tipo"
+    >
+        {{ rotulo }}
+    </button>
 </template>
 
 <script>
@@ -7,36 +14,59 @@ export default {
     props: {
         tipo: {
             required: true,
-            type: String
+            type: String,
         },
         rotulo: {
             required: true,
-            type: String
+            type: String,
         },
         confirmacao: Boolean,
-        estilo: String
+        estilo: String,
     },
     methods: {
         disparaAcao() {
-            if(this.confirmacao) {
-                if(confirm('Confirma?')) {
-                    this.$emit('botaoAtivado');
+            if (this.confirmacao) {
+                if (confirm("Confirma?")) {
+                    this.$emit("botaoAtivado");
                 }
                 return;
             }
-            this.$emit('botaoAtivado')   
-        }
+            this.$emit("botaoAtivado");
+        },
     },
     computed: {
         estiloDoBotao() {
-            if(this.estilo == 'padrao' || !this.estilo) return 'botao-padrao';
-            if(this.estilo == 'perigo') return 'botao-perigo';
-
-        }
-    }
-}
+            if (this.estilo == "padrao" || !this.estilo) {
+                return "botao-padrao";
+            } else {
+                if (this.estilo == "perigo") {
+                    return "botao-perigo";
+                } else {
+                    return {}
+                }
+            }
+        },
+    },
+};
 </script>
 
-<style lang="scss">
-    @import './Botao.scss';
+<style>
+
+.botao {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.botao-perigo {
+    background: firebrick;
+    color: white;
+}
+
+.botao-padrao {
+    background: darkcyan;
+    color: white;
+}
 </style>
