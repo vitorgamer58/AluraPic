@@ -43,7 +43,8 @@
 import Painel from "../shared/painel/Painel2.vue";
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
-import FotoService from "../../domain/foto/FotoService"
+//import FotoService from "../../domain/foto/FotoService"
+import { lista, apaga } from "../../http"
 
 export default {
   components: {
@@ -71,10 +72,7 @@ export default {
     },
   },
   created() {
-
-    this.service = new FotoService(this.$resource);
-    this.service
-      .lista()
+    lista()
       .then(fotos => this.fotos = fotos, (err) => this.mensage = err.message );
     
     // Este código foi tornado obsoleto em função de FotoService.js
@@ -103,15 +101,14 @@ export default {
 
   methods: {
     remove(foto) {
-      this.service.apaga(foto._id)
-        .then(() => {
+      apaga(foto._id).then(() => {
           let indice = this.fotos.indexOf(foto);
           this.fotos.splice(indice, 1);
           this.mensage = "Foto removida com sucesso";
         },
         (err) => {
           this.mensage = err.message;
-        })
+        })    
         
       /* this.resource.delete({ id: foto._id }).then(
         () => {

@@ -73,7 +73,8 @@
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
 import Foto from "../../domain/foto/Foto";
-import FotoService from "../../domain/foto/FotoService";
+//import FotoService from "../../domain/foto/FotoService";
+import { cadastra, busca } from "../../http";
 
 export default {
   components: {
@@ -90,11 +91,14 @@ export default {
   methods: {
     grava() {
       // método $validator vem do pacote vee-validator
-
       this.$validator.validateAll().then((sucess) => {
         if (sucess) {
-          /* this.foto = new Foto(); */
+          cadastra(this.foto).then(() => {
+            if (this.id) this.$router.push({ name: "home" }); // Redireciona
+            this.foto = new Foto();
+          })
 
+          /* this.foto = new Foto(); */
           // Envia os dados para o servidor via requisição POST, e então limpa o formulário, se houver erro então imprime o erro no console.
           /* this.$http
             .post('http://localhost:3000/v1/fotos', this.foto)
@@ -103,23 +107,14 @@ export default {
           /* this.resource
             .save(this.foto)
             .then(() => this.foto = new Foto(), err => console.log(err)) */
-
-          this.service.cadastra(this.foto).then(
-            () => {
-              if (this.id) this.$router.push({ name: "home" });
-              this.foto = new Foto();
-            },
-            (err) => console.log(err)
-          );
         };
       });
     },
   },
   created() {
     /* this.resource = this.$resource('v1/fotos'); */
-    this.service = new FotoService(this.$resource);
     if (this.id) {
-      this.service.busca(this.id).then((foto) => (this.foto = foto));
+      busca(this.id).then((foto) => (this.foto = foto));
     }
   },
 };
@@ -163,4 +158,5 @@ form {
 .erro {
   color: red;
 }
+
 </style>
