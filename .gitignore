@@ -2,3 +2,5 @@ node_modules/
 API/
 server/
 dist/
+coverage/
+index.html
