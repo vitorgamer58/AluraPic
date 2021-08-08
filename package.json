@@ -1,9 +1,9 @@
 {
   "name": "alurapic",
-  "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "Alura and Vitorgamer58",
   "private": true,
+  "description": "A Vue.js project",
+  "author": "Alura and Vitorgamer58",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -19,16 +19,15 @@
     "vue-router": "^3.5.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.15.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "^4.5.13",
     "@vue/cli-service": "~4.5.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.0.6",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "flush-promises": "^1.0.2",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

@@ -4,3 +4,4 @@ server/
 dist/
 coverage/
 index.html
+yarn.lock
