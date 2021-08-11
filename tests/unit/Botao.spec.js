@@ -30,4 +30,17 @@ describe('Teste do componente Botao', () => {
     expect(button.text()).toBe('Clique aqui')
     expect(button.classes()).toContain('botao-padrao')
   })
+
+  it('Botão deve emitir um evento', () => {
+    const wrapper = mount(Botao, {
+      propsData: {
+        tipo: 'button',
+        rotulo: 'Clique aqui',
+        confirmacao: false
+      }
+    })
+    const button = wrapper.find('button')
+    button.trigger('click')
+    expect(wrapper.emitted().botaoAtivado).toBeTruthy() // Evento deve ter sido disparado
+  })
 })

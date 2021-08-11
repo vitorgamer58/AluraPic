@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li v-for="route in rotas" v-bind:key="route.titulo">
-        <router-link :to="route.path ? route.path : '/'">
+        <router-link :to="route.path ? route.path : '/'" :data-cy="route.titulo">
           {{ route.titulo }}
         </router-link>
       </li>
