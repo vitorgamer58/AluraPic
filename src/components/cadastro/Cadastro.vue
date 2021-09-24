@@ -20,7 +20,9 @@
           v-model="foto.titulo"
         />
         <!-- <input id="titulo" autocomplete="off" @input="foto.titulo = $event.target.value" :value="foto.titulo"> -->
-        <span class="erro" v-show="errors.has('titulo')">{{errors.first("titulo")}}</span>
+        <span class="erro" v-show="errors.has('titulo')">{{
+          errors.first("titulo")
+        }}</span>
       </div>
 
       <div class="controle">
@@ -92,10 +94,11 @@ export default {
       this.$validator.validateAll().then((sucess) => {
         if (sucess) {
           cadastra(this.foto).then(() => {
-            if (this.id) this.$router.push({ name: "home" }); // Redireciona
-            this.foto = new Foto();
-          })
-
+            if (this.id) this.$router.push({ name: "home" }); // Redireciona SE estiver editando uma imagem.
+            this.foto = new Foto(); // Limpa os campos após o cadastro
+            this.$validator.reset();
+          });
+          
           /* this.foto = new Foto(); */
           // Envia os dados para o servidor via requisição POST, e então limpa o formulário, se houver erro então imprime o erro no console.
           /* this.$http
@@ -156,5 +159,4 @@ form {
 .erro {
   color: red;
 }
-
 </style>
