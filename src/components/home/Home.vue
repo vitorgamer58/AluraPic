@@ -31,6 +31,7 @@
             @botaoAtivado="remove(foto)"
             :confirmacao="true"
             estilo="perigo"
+            data-cy="apagar"
           />
         </meu-painel>
       </li>

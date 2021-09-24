@@ -34,6 +34,7 @@
           id="url"
           autocomplete="off"
           v-model="foto.url"
+          data-cy="url"
         />
         <!-- o Modifier .lazy (v-model.lazy="foto.url") posterga a atualização do valor que eu digitei no input com o objeto só para o momento que eu sair do input-->
         <!-- <input id="url" autocomplete="off" @input="foto.url = $event.target.value" :value="foto.url"> -->
@@ -59,7 +60,7 @@
       </div>
 
       <div class="centralizado">
-        <meu-botao rotulo="GRAVAR" tipo="submit" />
+        <meu-botao rotulo="GRAVAR" tipo="submit" data-cy="gravar" />
         <router-link :to="{ name: 'home' }"
           ><meu-botao rotulo="VOLTAR" tipo="button"
         /></router-link>
