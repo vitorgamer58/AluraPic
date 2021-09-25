@@ -3,17 +3,20 @@
 > A Vue.js project
 
 ## Build Setup
-Use node 14.17.3
+Use node 14.17.3 and yarn, if you does't have yarn installed:
+```
+npm install -g yarn
+```
 
 ``` bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn run dev
 
 # build for production with minification
-npm run build
+yarn run build
 ```
 
 and run API

@@ -31,6 +31,21 @@ describe('Teste do componente Botao', () => {
     expect(button.classes()).toContain('botao-padrao')
   })
 
+  it('Botão não deve receber classe se o estilo não estiver previsto', () => {
+    const wrapper = mount(Botao, {
+      propsData: {
+        tipo: 'button',
+        rotulo: 'Clique aqui',
+        confirmacao: false,
+        estilo: 'qualquer'
+      }
+    })
+    const button = wrapper.find('button')
+    expect(button.exists()).toBe(true)
+    expect(button.text()).toBe('Clique aqui')
+    expect(button.classes()).not.toContain('qualquer')
+  })
+
   it('Botão deve emitir um evento', () => {
     const wrapper = mount(Botao, {
       propsData: {
