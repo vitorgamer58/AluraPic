@@ -3,7 +3,7 @@
 <template>
   <div>
     <h1 class="centralizado">Cadastro</h1>
-    <h2 class="centralizado">{{ foto.titulo }}</h2>
+    <h2 class="centralizado" data-cy="tituloDaImagem">{{ foto.titulo }}</h2>
     <h2 class="centralizado" v-if="foto._id">Alterando</h2>
     <h2 class="centralizado" v-else>Incluindo</h2>
 
@@ -20,7 +20,7 @@
           v-model="foto.titulo"
         />
         <!-- <input id="titulo" autocomplete="off" @input="foto.titulo = $event.target.value" :value="foto.titulo"> -->
-        <span class="erro" v-show="errors.has('titulo')">{{
+        <span class="erro" v-show="errors.has('titulo')" data-cy="titulo_erro">{{
           errors.first("titulo")
         }}</span>
       </div>
