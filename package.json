@@ -8,13 +8,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "babel-core": "^7.0.0-bridge.0",
     "bootstrap": "^3.3.7",
     "core-js": "^3.6.5",
+    "cypress": "8.3.1",
+    "eslint-plugin-cypress": "^2.12.1",
     "vee-validate": "^2.2.15",
     "vue": "^2.6.11",
     "vue-router": "^3.5.2"
@@ -38,7 +42,8 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "plugin:cypress/recommended"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
@@ -51,7 +56,8 @@
           "**/tests/unit/**/*.spec.{j,t}s?(x)"
         ],
         "env": {
-          "jest": true
+          "jest": true,
+          "cypress/globals": true
         }
       }
     ]

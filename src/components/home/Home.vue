@@ -22,7 +22,7 @@
             v-meu-transform:scale.animate="1.2"
           />
           <router-link :to="{ name: 'altera', params: { id: foto._id } }">
-            <meu-botao tipo="button" rotulo="ALTERAR"/>
+            <meu-botao tipo="button" rotulo="ALTERAR" data-cy="alterar"/>
           </router-link>
           
           <meu-botao
