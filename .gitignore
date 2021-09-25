@@ -5,3 +5,4 @@ dist/
 coverage/
 index.html
 yarn.lock
+cypress/screenshots
